@@ -7,7 +7,7 @@ import PerfAnalyics from './library/PerfAnalytics.js'
  */
 document.addEventListener('visibilitychange', () => {
   if (document.visibilityState === 'hidden') {
-    (new PerfAnalyics({ url: 'http://localhost:3000' })).sendMetrics('/analytics')
+    (new PerfAnalyics({ url: 'https://per-api.herokuapp.com' })).sendMetrics('/analytics')
   }
 });
 
