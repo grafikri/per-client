@@ -18,4 +18,4 @@ $ npm run dev
 
 #### production
 
-Create just a server on root. The ``ìndex.html``` file will be published.
+Create just a server on root. The `ìndex.html` file will be published.
