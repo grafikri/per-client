@@ -1,5 +1,7 @@
 
+import appConfig from '../app.config.js';
 import PerfAnalyics from './library/PerfAnalytics.js'
+
 
 
 /**
@@ -7,12 +9,6 @@ import PerfAnalyics from './library/PerfAnalytics.js'
  */
 document.addEventListener('visibilitychange', () => {
   if (document.visibilityState === 'hidden') {
-    (new PerfAnalyics({ url: 'https://per-api.herokuapp.com' })).sendMetrics('/analytics')
+    (new PerfAnalyics({ url: appConfig.API_URL })).sendMetrics('/analytics')
   }
 });
-
-
-
-
-
-
