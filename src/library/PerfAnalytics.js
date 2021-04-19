@@ -35,14 +35,14 @@ export default class PerfAnalyics {
     const ttfb = performance.timing.responseStart - performance.timing.fetchStart
     const domLoading = performance.timing.domInteractive - performance.timing.fetchStart;
     const fcp = Math.floor(performance.getEntriesByName("first-contentful-paint")[0]?.startTime)
-    const pageLoad = performance.timing.loadEventStart - performance.timing.fetchStart
+    const pageLoading = performance.timing.loadEventStart - performance.timing.fetchStart
 
 
     const data = {
       ttfb,
       domLoading,
       fcp,
-      pageLoad
+      pageLoading
     }
     
     return JSON.stringify(data)
