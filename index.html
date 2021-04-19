@@ -5,9 +5,32 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Performance Client</title>
+  <style>
+    #frame {
+      height: 200px;
+      overflow: auto;
+      border: solid 1px gray;
+      display: inline-block;
+    }
+  </style>
   <script type="module" src="/src/app.js"></script>
 </head>
 <body>
   When you change the browser's tab or refresh the page, analytics data will be sent to API immediately
+  <hr />
+  The 10000 line created to increase page load time
+  <hr />
+  <ul id="frame">
+
+  </ul>  
+  <script>
+    const lineCount = 10000
+    for (let index = 0; index < lineCount; index++) {
+      const elem = document.createElement('li')
+      elem.innerHTML = `#${index+1}`
+      document.getElementById('frame').appendChild(elem)
+    }
+  </script>
+  
 </body>
 </html>

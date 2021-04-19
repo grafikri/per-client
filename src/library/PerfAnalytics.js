@@ -22,8 +22,7 @@ export default class PerfAnalyics {
    * @param {string} path url path
    */
   sendMetrics(path) {
-    this.getMetrics()
-    // navigator.sendBeacon(this.getFullPath(path), this.getMetrics())
+    navigator.sendBeacon(this.getFullPath(path), this.getMetrics())
   }
 
   /**
@@ -42,8 +41,6 @@ export default class PerfAnalyics {
       domLoading,
       fcp
     }
-
-    console.log('data: ', data);
     
     return JSON.stringify(data)
   }
