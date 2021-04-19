@@ -22,7 +22,8 @@ export default class PerfAnalyics {
    * @param {string} path url path
    */
   sendMetrics(path) {
-    navigator.sendBeacon(this.getFullPath(path), this.getMetrics())
+    this.getMetrics()
+    // navigator.sendBeacon(this.getFullPath(path), this.getMetrics())
   }
 
   /**
@@ -31,13 +32,18 @@ export default class PerfAnalyics {
    * @returns {string}
    */
   getMetrics() {
+
     const ttfb = performance.timing.unloadEventEnd - performance.timing.responseStart
-    const domLoading = performance.timing.domContentLoadedEventEnd - performance.timing.navigationStart;
+    const domLoading = performance.timing.domContentLoadedEventEnd- performance.timing.navigationStart;
+    const fcp = Math.floor(performance.getEntriesByName("first-contentful-paint")[0]?.startTime)
 
     const data = {
       ttfb,
-      domLoading
+      domLoading,
+      fcp
     }
+
+    console.log('data: ', data);
     
     return JSON.stringify(data)
   }
