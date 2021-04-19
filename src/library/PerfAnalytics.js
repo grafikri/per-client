@@ -31,12 +31,15 @@ export default class PerfAnalyics {
    * @returns {string}
    */
   getMetrics() {
+
     const ttfb = performance.timing.unloadEventEnd - performance.timing.responseStart
-    const domLoading = performance.timing.domContentLoadedEventEnd - performance.timing.navigationStart;
+    const domLoading = performance.timing.domContentLoadedEventEnd- performance.timing.navigationStart;
+    const fcp = Math.floor(performance.getEntriesByName("first-contentful-paint")[0]?.startTime)
 
     const data = {
       ttfb,
-      domLoading
+      domLoading,
+      fcp
     }
     
     return JSON.stringify(data)
